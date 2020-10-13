@@ -1,0 +1,7 @@
+dist
+node_modules
+.cache
+src/img
+.idea
+
+package-lock.json

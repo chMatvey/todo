@@ -1,0 +1,161 @@
+body {
+  background-color: #F6F3F3;
+  font-family: 'Roboto', sans-serif;
+}
+
+p, h4 {
+  margin: 0;
+}
+
+.todo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 520px;
+  height: 550px;
+  background-color: #FFF;
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #CCC2C2;
+
+  &_header {
+    background: #4B95EB;
+    padding: 20px;
+
+    h4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #FFF;
+      font-size: 26px;
+      font-weight: 500;
+    }
+  }
+
+  &_new-task {
+    display: flex;
+    height: 62px;
+    border-bottom: 1px solid #D6C8C8;
+
+    input {
+      border: 0;
+      font-size: 20px;
+      padding: 20px;
+      flex: 1;
+
+      &::-webkit-input-placeholder {
+        color: #CFCACA;
+      }
+
+      &:-ms-input-placeholder {
+        color: #CFCACA;
+      }
+
+      &::-ms-input-placeholder {
+        color: #CFCACA;
+      }
+
+      &::placeholder {
+        color: #CFCACA;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 74px;
+
+      border: 0;
+      background-color: transparent;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        background-color: #F6F3F3;
+        cursor: pointer;
+
+        svg {
+          path {
+            fill: #726464;
+          }
+        }
+      }
+    }
+  }
+
+  &_list {
+    &-item {
+      $self: &;
+
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border: 1px solid #E0D8D8;
+      color: #575757;
+
+      &.completed {
+        text-decoration: line-through;
+
+        #{$self}-check {
+          background-color: #4B95EB;
+
+          svg {
+            display: block;
+          }
+        }
+      }
+
+      &-check {
+        border: 2px solid #4B95EB;
+        border-radius: 30px;
+        height: 24px;
+        width: 24px;
+        margin-right: 15px;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          display: none;
+        }
+
+        &:hover {
+          background-color: #F6F3F3;
+        }
+      }
+
+      p {
+        font-size: 20px;
+        flex: 1;
+      }
+
+      &-remove:hover {
+        cursor: pointer;
+
+        svg {
+          path {
+            fill: #4B95EB;
+          }
+        }
+      }
+
+      &:hover {
+        background-color: #F5F5F5;
+      }
+    }
+  }
+}
