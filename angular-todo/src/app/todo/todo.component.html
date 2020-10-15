@@ -14,8 +14,10 @@
 
   <div class="todo_list">
     <app-todo-item *ngFor="let todo of todos"
+                   @todo
                    [todo]="todo"
                    (remove)="onRemove($event)"
-                   (check)="onCheck($event)"></app-todo-item>
+                   (check)="onCheck($event)">
+    </app-todo-item>
   </div>
 </div>

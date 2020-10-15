@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core'
 
 export interface Todo {
   id?: number
   description: string
   done: boolean
+  removed?: boolean
 }
 
 @Component({
@@ -17,13 +18,21 @@ export class TodoItemComponent {
   todo: Todo
 
   @Output()
-  remove = new EventEmitter<number>()
+  remove = new EventEmitter<Todo>()
 
   @Output()
   check = new EventEmitter<Todo>()
 
+  constructor(private cdr: ChangeDetectorRef) {
+  }
+
   get description(): string {
     console.log('Run change detection')
     return this.todo.description;
+  }
+
+  onRemove(todo: Todo): void {
+    todo = {...todo, removed: true}
+    this.remove.emit(this.todo)
   }
 }
