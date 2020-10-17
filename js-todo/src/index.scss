@@ -164,5 +164,25 @@ p, h4 {
         background-color: #F5F5F5;
       }
     }
+
+    /* Width */
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #83BCFF;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #4B95EB;
+    }
   }
 }
