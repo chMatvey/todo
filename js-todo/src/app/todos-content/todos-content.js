@@ -18,7 +18,7 @@ export class TodosContent {
     render(todos) {
         this.$element.innerHTML = ''
 
-        todos.forEach(todo => {
+        todos.sort(todo => todo.done ? 1 : -1).forEach(todo => {
             this.$element.insertAdjacentHTML('beforeend', `
                 <div id="todo-item-${todo.id}" class="todo_list-item${todo.done ? ' completed' : ''}" draggable="true">
                     <div id="check-todo-${todo.id}" class="todo_list-item-check">
