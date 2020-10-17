@@ -83,8 +83,6 @@ export class TodosContent {
             switch (dragDirection) {
                 case DragDirection.DOWN: {
                     if (cursorPosition > currentElementCenterPosition) {
-                        console.log(cursorPosition)
-                        console.log(currentElementCenterPosition)
                         this.$element.insertBefore(currentElement, selectedElement)
                         this.elementChangedPosition = true
                     }
@@ -92,8 +90,6 @@ export class TodosContent {
                 }
                 case DragDirection.UP: {
                     if (cursorPosition < currentElementCenterPosition) {
-                        console.log(cursorPosition)
-                        console.log(currentElementCenterPosition)
                         this.$element.insertBefore(selectedElement, currentElement)
                         this.elementChangedPosition = true
                     }
