@@ -41,6 +41,9 @@ export class App {
                 this.#todos = this.#todos.filter(todo => todo.id !== id)
 
                 this.#todosContent.render(this.#todos)
+            },
+            todos => {
+                this.#todos = todos
             }
         )
 

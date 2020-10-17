@@ -19,7 +19,7 @@ p, h4 {
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
-  overflow: hidden;
+  //overflow: auto;
   border: 1px solid #CCC2C2;
 
   &_header {
@@ -96,6 +96,9 @@ p, h4 {
   }
 
   &_list {
+    height: calc(550px - 71px - 62px);
+    overflow-y: auto;
+
     &-item {
       $self: &;
 
@@ -115,10 +118,10 @@ p, h4 {
             display: block;
           }
         }
-      }
 
-      &.selected {
-        opacity: 0.8;
+        &.selected {
+          opacity: 0.6;
+        }
       }
 
       &-check {
