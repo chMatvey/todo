@@ -1,4 +1,4 @@
-import { getElementWithId, HtmlElementWrapper, todoHtml } from "../util";
+import { getCenterPosition, getElementWithId, HtmlElementWrapper, todoHtml } from "../util";
 import { Todo } from "../todo";
 
 const DragDirection = Object.freeze({
@@ -7,7 +7,6 @@ const DragDirection = Object.freeze({
 })
 
 export class TodosContent {
-
     constructor(selector, checkCallback, removeCallback, updateModelCallback) {
         this.$element = document.querySelector(selector)
         this.checkCallback = checkCallback
@@ -76,12 +75,8 @@ export class TodosContent {
 
         if (isMovable && isSameDoneStatus) {
             const cursorPosition = event.clientY
-
-            const selectedElementCoordinates = selectedElement.getBoundingClientRect()
-            const selectedElementCenterPosition = selectedElementCoordinates.y + selectedElementCoordinates.height / 2
-
-            const currentElementCoordinates = currentElement.getBoundingClientRect()
-            const currentElementCenterPosition = currentElementCoordinates.y + currentElementCoordinates.height / 2
+            const selectedElementCenterPosition = getCenterPosition(selectedElement)
+            const currentElementCenterPosition = getCenterPosition(currentElement)
 
             const dragDirection = selectedElementCenterPosition > currentElementCenterPosition ? DragDirection.UP : DragDirection.DOWN
 

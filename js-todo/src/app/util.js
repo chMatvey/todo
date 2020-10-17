@@ -30,3 +30,8 @@ export function todoHtml(todo) {
 export function getElementWithId(event) {
     return event.path.find(element => element.id)
 }
+
+export function getCenterPosition(element) {
+    const elementCoordinates = element.getBoundingClientRect()
+    return elementCoordinates.y + elementCoordinates.height / 2
+}
