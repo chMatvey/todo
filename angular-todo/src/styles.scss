@@ -19,7 +19,6 @@ p, h4 {
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
-  overflow: hidden;
   border: 1px solid #CCC2C2;
 
   &_header {
@@ -96,6 +95,9 @@ p, h4 {
   }
 
   &_list {
+    height: calc(550px - 71px - 62px);
+    overflow-y: auto;
+
     &-item {
       $self: &;
 
@@ -104,6 +106,7 @@ p, h4 {
       padding: 20px;
       border: 1px solid #E0D8D8;
       color: #575757;
+      cursor: move;
 
       &.completed {
         text-decoration: line-through;
@@ -157,5 +160,26 @@ p, h4 {
         background-color: #F5F5F5;
       }
     }
+
+    /* Width */
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #83BCFF;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #4B95EB;
+    }
   }
 }
+

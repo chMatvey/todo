@@ -7,6 +7,11 @@ export interface Todo {
   removed?: boolean
 }
 
+export interface DragEvent {
+  firstTodo: Todo
+  secondTodo: Todo
+}
+
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
@@ -23,9 +28,6 @@ export class TodoItemComponent {
   @Output()
   check = new EventEmitter<Todo>()
 
-  constructor(private cdr: ChangeDetectorRef) {
-  }
-
   get description(): string {
     console.log('Run change detection')
     return this.todo.description;
@@ -33,6 +35,6 @@ export class TodoItemComponent {
 
   onRemove(todo: Todo): void {
     todo = {...todo, removed: true}
-    this.remove.emit(this.todo)
+    this.remove.emit(todo)
   }
 }

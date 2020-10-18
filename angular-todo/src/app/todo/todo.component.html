@@ -12,8 +12,9 @@
     </button>
   </div>
 
-  <div class="todo_list">
-    <app-todo-item *ngFor="let todo of todos"
+  <div cdkDropList class="todo_list" (cdkDropListDropped)="drop($event)">
+    <app-todo-item cdkDrag
+                   *ngFor="let todo of todos"
                    @todo
                    [todo]="todo"
                    (remove)="onRemove($event)"
