@@ -22,8 +22,6 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 })
 export class TodoComponent implements OnInit {
 
-  @ViewChild('newTodo') newTodoInput: ElementRef
-
   todos: Todo[] = [
     {
       id: 1,
@@ -59,18 +57,14 @@ export class TodoComponent implements OnInit {
   }
 
   createNewTask(description: string): void {
-    if (description) {
-      this.todos = [
-        {
-          id: ++this.lastId,
-          description,
-          done: false
-        },
-        ...this.todos
-      ]
-
-      this.newTodoInput.nativeElement.value = ''
-    }
+    this.todos = [
+      {
+        id: ++this.lastId,
+        description,
+        done: false
+      },
+      ...this.todos
+    ]
   }
 
   onRemove(todo: Todo): void {
